@@ -1,8 +1,12 @@
 const Converter = require('csvtojson').Converter;
 
-var C2JConverter = new Converter({constructResult:false});
-var ReadStream = require('fs').createReadStream("./customer-data.csv");
-var WriteStream = require('fs').createWriteStream("customer-data.json");
-ReadStream.pipe(C2JConverter).pipe(WriteStream);
+var csv2json = new Converter({constructResult:false});
+
+var readStream = require('fs').createReadStream('./customer-data.csv');
+var writeSteam = require('fs').createWriteStream('customer-data.json');
+
+readStream.pipe(csv2json).pipe(writeSteam);
+
+
 
 
